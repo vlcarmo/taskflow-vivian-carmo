@@ -1,0 +1,715 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"secondary-fixed":"#cce5ff","surface-variant":"#dae2fd","on-primary-fixed-variant":"#3323cc","tertiary-container":"#006e4b","secondary":"#006398","on-error-container":"#93000a","primary":"#3525cd","on-surface":"#131b2e","on-surface-variant":"#464555","on-secondary-fixed":"#001d31","on-tertiary-fixed":"#002113","error":"#ba1a1a","on-secondary-container":"#00476e","tertiary-fixed-dim":"#4edea3","surface-tint":"#4d44e3","on-primary":"#ffffff","surface-container-highest":"#dae2fd","secondary-container":"#5bb8fe","error-container":"#ffdad6","on-primary-container":"#dad7ff","surface":"#faf8ff","primary-fixed":"#e2dfff","background":"#faf8ff","outline":"#777587","surface-container-high":"#e2e7ff","on-error":"#ffffff","on-secondary":"#ffffff","secondary-fixed-dim":"#93ccff","on-tertiary-container":"#67f4b7","primary-fixed-dim":"#c3c0ff","on-secondary-fixed-variant":"#004b73","surface-container-low":"#f2f3ff","surface-bright":"#faf8ff","inverse-on-surface":"#eef0ff","on-tertiary-fixed-variant":"#005236","tertiary-fixed":"#6ffbbe","outline-variant":"#c7c4d8","on-tertiary":"#ffffff","inverse-surface":"#283044","tertiary":"#005338","inverse-primary":"#c3c0ff","on-primary-fixed":"#0f0069","on-background":"#131b2e","surface-dim":"#d2d9f4","surface-container":"#eaedff","surface-container-lowest":"#ffffff","primary-container":"#4f46e5"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","margin-md":"1.5rem","space-lg":"1rem","space-xl":"1.5rem","space-sm":"0.5rem","gutter":"1rem","space-xs":"0.25rem","gutter-lg":"1.5rem","space-md":"0.75rem","margin-lg":"2rem"},"fontFamily":{"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"code-mono":["JetBrains Mono"],"headline-xl":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"headline-xl-mobile":["Inter"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"code-mono":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["15px",{"lineHeight":"22px","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-xl-mobile":["26px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="px-space-xl py-space-lg flex items-center gap-space-md"><img alt="TaskFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WUU2ZHXWfAdN4rWWbay8jWbsxSaX6LeA7ExC7dw736bSP5v8bEdyWL64_4dN7z_1Q9TOKxcCR2-7iJ7TTy0yzfFRUDtkE1e8euaWXdiZILMr16j42kPBPmvDSoZKGewW1QO4Uu25U-dvnz7GKKCAS0e9LrHAeGUaWorUGtJ_LhLMSPzit9rMDpZL4aQeL2LHeayIzY8lHLW8vdV1Xo90S74N9fcqqp6HfqimF9rFQW0Kn8XjOMEEKyaPI"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">TaskFlow</span><span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-mono text-label-sm">v2.4</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Local-First Workspace</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm pb-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Workspace Lanes</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors group" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface">grid_view</span><span class="font-body-sm text-body-sm font-medium">Dashboard</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-md py-2.5 rounded-lg transition-colors group bg-primary-container text-on-primary font-semibold shadow-sm" data-path="kanban-board" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface">view_kanban</span><span class="font-body-sm text-body-sm font-medium">Kanban Board</span></div><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-code-mono text-label-sm font-semibold">18 tasks</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors group" data-path="process-docs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface">menu_book</span><span class="font-body-sm text-body-sm font-medium">Process Docs / POP</span></div><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-code-mono text-label-sm">12 SOPs</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors group" data-path="quality-improvements" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface">trending_up</span><span class="font-body-sm text-body-sm font-medium">Quality / Improvements</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors group" data-path="backup-json" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface">hard_drive</span><span class="font-body-sm text-body-sm font-medium">Backup JSON</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Sync</span></a></nav></div></div><div class="p-space-md flex flex-col gap-space-sm"><div class="group relative flex items-center gap-space-sm px-space-md py-2 rounded-lg bg-surface-container-low cursor-help"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span><span class="font-label-md text-label-md text-tertiary font-semibold">Local Storage Active</span><div class="pointer-events-none absolute bottom-full left-2 mb-2 hidden w-60 rounded-lg bg-inverse-surface p-space-sm text-inverse-on-surface shadow-lg group-hover:block z-50"><p class="font-body-sm text-body-sm leading-tight">All data stored securely on this browser (IndexedDB &amp; LocalStorage). Zero cloud latency.</p></div></div><button class="flex items-center justify-between w-full px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">keyboard</span><span class="font-body-sm text-body-sm font-medium">Shortcuts</span></div><span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface font-code-mono text-label-sm">?</span></button><div class="pt-space-xs"><div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm"><div class="relative"><img alt="Alex Rivera" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClBFdKK1LuLgHqrrxmsWgRd7pgVEVm64JBrgFKnYLM3rspQBi_cxWwPSe4qhn8KLS3eokG4vHHeaC7VF7QPqnD9ev5U7FS32_kwdnqRzvnzRa3GNea8XhH3f4vKCJh5j2tu3-mvy8SKTA0X0yIg-GwwUxhTTJrMx4Sj_SJy2PZV6fwcgshso82rQF54JrrXX8ijbpQm-I8PpgVWuQTevMBL1eLY5rKJivv0XfTsnxtNhAXMvbEmrT3"><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary-fixed-dim ring-1 ring-surface-container-lowest"></span></div><div class="flex flex-col text-left"><span class="font-headline-sm text-body-sm font-semibold text-on-surface leading-snug">Alex Rivera</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Remote Core Team</span></div></div><span class="material-symbols-outlined text-[20px] text-on-surface-variant">unfold_more</span></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Remote Core Team</span><span class="font-body-sm text-body-sm text-outline-variant">/</span><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Sprint 14 Kanban</span><span class="ml-space-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-code-mono text-label-sm">Online Local</span></div><div class="flex-1 max-w-md mx-space-xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-14 rounded-lg bg-surface-container-lowest text-body-sm text-on-surface placeholder:text-outline border-none focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="Search cards, ID, tags, or assignees..." type="text"><div class="absolute right-2.5 flex items-center"><kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-mono text-label-sm shadow-sm">⌘K</kbd></div></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-body-sm font-medium shadow-sm transition-colors" title="Export local database snapshot to JSON" type="button"><span class="material-symbols-outlined text-[18px] text-secondary">file_download</span><span>Export JSON</span></button><button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-body-sm font-semibold shadow-sm transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New Task</span><kbd class="ml-1 px-1.5 py-0.2 rounded bg-primary text-on-primary font-code-mono text-label-sm opacity-90">N</kbd></button><div class="h-5 w-px bg-surface-container-high"></div><button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Heuristics Guide &amp; Process POP Documentation" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button></div></header><main class="relative pt-16 bg-surface min-h-[calc(100vh-4rem)] flex-1 w-full px-space-xl"><div class="flex flex-col w-full pb-16">
+<!-- TOP CONTEXTUAL BANNER: Heuristics #9 & #10 (Error Recovery & Help/Documentation) -->
+<div class="mb-space-lg flex items-center justify-between px-space-md py-2.5 rounded-xl bg-surface-container-high text-on-surface shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="flex items-center justify-center w-6 h-6 rounded-lg bg-primary text-on-primary shrink-0">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">
+<span class="font-semibold text-primary">POP Guidance:</span> Need help adhering to team standards? Click any card’s <span class="font-code-mono text-label-sm px-1.5 py-0.5 rounded bg-surface-container-lowest font-semibold">POP</span> badge to view the linked Standard Operating Procedure.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 ml-space-md">
+<a class="font-label-sm text-label-sm font-semibold text-primary hover:text-on-primary-fixed-variant transition-colors flex items-center gap-0.5" href="#">
+        Browse 12 SOPs
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+<button class="text-on-surface-variant hover:text-on-surface flex items-center p-1 rounded transition-colors" onclick="this.closest('.flex.items-center.justify-between').style.display='none'" title="Dismiss banner" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- 1. TOP DASHBOARD METRIC CARDS (Bento Row) -->
+<section class="grid grid-cols-5 gap-gutter mb-space-lg">
+<!-- Card 1: Total Tasks -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Total Tasks</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-semibold text-on-surface">18</span>
+<span class="font-code-mono text-label-sm text-on-surface-variant">tasks</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-code-mono text-label-sm font-semibold">+3 this sprint</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">active lane</span>
+</div>
+</div>
+</div>
+<!-- Card 2: In Progress -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">In Progress</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-semibold text-on-surface">6</span>
+<span class="font-label-sm text-label-sm font-medium text-secondary">active now</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">4 members working</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Completed Tasks -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Completed</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-semibold text-on-surface">9</span>
+<span class="font-code-mono text-label-sm text-tertiary font-semibold">50% velocity</span>
+</div>
+<div class="mt-space-xs w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+</div>
+<!-- Card 4: Overdue Tasks (Warning/Alert emphasis) -->
+<div class="p-space-md rounded-xl bg-error-container/40 shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5 relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-error"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-error-container font-semibold">Overdue Tasks</span>
+<div class="w-8 h-8 rounded-lg bg-error text-on-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-semibold text-error">2</span>
+<span class="font-code-mono text-label-sm text-error font-semibold">SLA Breached</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+<span class="font-label-sm text-label-sm font-semibold">Requires immediate triage</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Active Process Docs (POP) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Active POPs</span>
+<div class="w-8 h-8 rounded-lg bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-semibold text-on-surface">12</span>
+<span class="font-code-mono text-label-sm text-on-surface-variant">SOPs linked</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-tertiary-fixed text-tertiary font-code-mono text-label-sm font-semibold">100% compliant</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. ACTION & FILTER BAR (Toolbar) -->
+<section class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest shadow-sm mb-space-lg">
+<!-- Left: Filters & Search -->
+<div class="flex items-center gap-space-md flex-wrap">
+<!-- Quick Filter Search Input (Heuristic #7: Flexibility / Keyboard shortcut '/') -->
+<div class="relative flex items-center w-72">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">filter_alt</span>
+<input class="w-full h-9 pl-9 pr-8 rounded-lg bg-surface-container-low text-body-sm text-on-surface placeholder:text-outline border-none focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all" id="kanbanSearchInput" placeholder="Filter by title, ID or tag... [/]" type="text">
+<kbd class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-mono text-label-sm"> / </kbd>
+</div>
+<!-- Priority Dropdown Filter -->
+<div class="relative">
+<select class="h-9 pl-3 pr-8 rounded-lg bg-surface-container-low text-body-sm text-on-surface font-medium border-none focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer appearance-none">
+<option value="all">Priority: All</option>
+<option value="critical">🔴 Critical Only</option>
+<option value="high">🟠 High Priority</option>
+<option value="medium">🔵 Medium Priority</option>
+<option value="low">⚪ Low Priority</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[16px] text-outline pointer-events-none">expand_more</span>
+</div>
+<!-- Assignee Filter Cluster -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg gap-1">
+<button class="px-2.5 py-1 rounded-md text-label-sm font-semibold bg-primary text-on-primary shadow-xs" type="button">All Team</button>
+<div class="flex items-center -space-x-1.5 px-1">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-surface-container-lowest hover:scale-110 transition-transform cursor-pointer" data-alt="Alex Rivera headshot avatar, young software engineer with headphones against neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe3sL5Z81pjXd7f8oGQFXFt-1AunT_kmBIwU6-OSH1dm0468KXPnN8Qr_vQq4Wr3srsQOmX7i1sd6Uj7sBpqZBZ95YiA6Ywq1nw2VHzKaT21DNxc8Fk06aaOHoBDjwuoaqwD9K95j3zn-ySHt2jDQiD_zkQIFsoZ_zTSWigcQGzTFi5ch74a3VxLaZGcn2eLF-cyCc36oWZkkqRVrBNrzlOHtYufIry1e3Iiyi5f7kJfP_uOoNlIBI" title="Filter: Alex Rivera">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-surface-container-lowest hover:scale-110 transition-transform cursor-pointer" data-alt="Sarah Chen portrait avatar, Asian female product designer smiling in bright creative agency office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhoOv9cjmHha9uxvkMzuhlytjcRZcAe-TZcTMRx8bS9GQO3mD0MhwGndQZ4ZiRMEHxfR6hNPo-Yyu9bjxXFGQfVnCNClUO4LCkCp6kxE8FlPEMErtnYcc3YTGvIP9DVAmaT8C3lPi6j0Ty48z1oSA6snLkvyfaeq7uoWenLMfxhv-i7asvmw2PkAMgY8ngkXMdvJXW-tSOOdhVY6e0H-wyQ1sdHZ4AAhV_d6GjvDz0EFEcrGBEqbdr" title="Filter: Sarah Chen">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-surface-container-lowest hover:scale-110 transition-transform cursor-pointer" data-alt="David Kim developer avatar, professional headshot in glasses with dark architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoiE1pSVr2-QWHDQUXVEC-4rIJYHqSykSnJrwXjuGd6yK1AHVHrJaX2qJe2NyrsEhm87LzKioHYgZxmQgdNyhrTH_WJs2ivXWQUlla7GQ-HwvNMML_TWGV2obppbVZFb3SwssU__iDI7efUlwYiX66-LebLuYyr3MVduPfb9fGTJ6bFk6xGwkaVli9igIqSSHZCL5_yZGUb64tn0_kBliiItB2_S90iRX0Ry3KsUIcaB8r53k64CLr" title="Filter: David Kim">
+</div>
+<span class="px-1.5 py-0.5 text-label-sm font-code-mono text-on-surface-variant hover:text-on-surface cursor-pointer">+3</span>
+</div>
+<!-- POP Linked Only Toggle -->
+<label class="flex items-center gap-space-xs cursor-pointer select-none px-2 py-1.5 rounded-lg hover:bg-surface-container-low transition-colors">
+<input class="sr-only peer" type="checkbox">
+<div class="w-8 h-4 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-3 after:w-3.5 after:transition-all peer-checked:bg-primary relative"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant peer-checked:text-on-surface font-medium">POP Linked Only</span>
+</label>
+</div>
+<!-- Right: Heuristic Tools & Create Action -->
+<div class="flex items-center gap-space-sm">
+<!-- Heuristic #3: User Control & Freedom (Undo Button) -->
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium transition-colors group" id="undoBtn" title="Undo last card move (Heuristic #3)" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-surface">undo</span>
+<span>Undo move</span>
+<kbd class="px-1.5 py-0.2 rounded bg-surface-container-lowest text-on-surface-variant font-code-mono text-label-sm shadow-xs">Z</kbd>
+</button>
+<!-- Clear Filters -->
+<button class="px-2.5 py-2 rounded-lg text-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-medium transition-colors" type="button">
+        Clear
+      </button>
+<div class="h-5 w-px bg-surface-container-high mx-1"></div>
+<!-- Primary Action: Create Task (Heuristic #5: Error Prevention modal trigger) -->
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-sm text-body-sm font-semibold shadow-sm transition-all transform active:scale-95" onclick="document.getElementById('taskDrawer').classList.remove('translate-x-full'); document.getElementById('drawerBackdrop').classList.remove('hidden');" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Task</span>
+<kbd class="ml-1 px-1.5 py-0.2 rounded bg-primary text-on-primary font-code-mono text-label-sm opacity-90">N</kbd>
+</button>
+</div>
+</section>
+<!-- 3. MAIN KANBAN BOARD (3-Column Layout: Match Between System & Real World) -->
+<section class="grid grid-cols-3 gap-gutter items-start">
+<!-- ================= COLUMN 1: TO DO ================= -->
+<div class="flex flex-col rounded-2xl bg-surface-container p-space-md shadow-xs">
+<!-- Column Header -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-3 h-3 rounded-full bg-outline"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">To Do</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-code-mono text-label-sm font-semibold shadow-xs">5</span>
+</div>
+<div class="flex items-center gap-1">
+<!-- Subtle Progress Ring (5 of 18) -->
+<svg class="w-5 h-5 text-surface-container-highest" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="none" r="9" stroke="currentColor" stroke-width="2.5"></circle>
+<circle cx="12" cy="12" fill="none" r="9" stroke="#3525cd" stroke-dasharray="56" stroke-dashoffset="40" stroke-linecap="round" stroke-width="2.5"></circle>
+</svg>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Inline Quick Add Input -->
+<div class="mb-space-md">
+<div class="flex items-center bg-surface-container-lowest rounded-xl p-1.5 shadow-xs transition-shadow focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined text-[18px] text-outline ml-1">add</span>
+<input class="w-full bg-transparent border-none text-body-sm text-on-surface placeholder:text-outline px-2 focus:outline-none" placeholder="+ Quick Add Task (Press Enter)" type="text">
+<span class="font-code-mono text-label-sm text-outline mr-1.5">↵</span>
+</div>
+</div>
+<!-- Card Stack -->
+<div class="flex flex-col gap-space-sm min-h-[460px]">
+<!-- Card TF-104 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="font-code-mono text-label-sm text-outline font-semibold">TF-104</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Engineering</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              High
+            </span>
+</div>
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface mb-space-sm line-clamp-2">
+            Implement JSON local schema validation
+          </h3>
+<!-- POP Standard Link Badge with Rich Tooltip -->
+<div class="mb-space-md">
+<div class="group/pop relative inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors cursor-help">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">policy</span>
+<span class="font-code-mono text-label-sm font-semibold">POP-04 Data Integrity</span>
+<!-- Tooltip (Heuristic #10: Help and documentation) -->
+<div class="pointer-events-none absolute bottom-full left-0 mb-2 hidden w-64 rounded-xl bg-inverse-surface p-space-sm text-inverse-on-surface shadow-xl group-hover/pop:block z-50">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-surface-tint font-semibold block mb-0.5">SOP Requirement</span>
+<p class="font-body-sm text-label-sm leading-snug">Ensure all client schemas validate against strict JSON Draft 2020-12 specs before committing to IndexedDB.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>Tomorrow (Oct 24)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Sarah Chen portrait avatar with ponytail and glasses, smiling warmly, corporate photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCueYubzKX5fbLxQZKRvTYeGR4cYbkQzh7qTpV4E7HX-y5jufAqdm7PwdIbcUeOhKJw7-Yk0tnZZlVjTr6E91LeYnAQC_ZnHgb-U_aY_pjazFo7At2dVriZQVTkVC1zu5HP8Y32Vie9S9YRkI2ZUFb4j8kCD0kMVqbdvLuoLAJYWE1dCJjWHq_2flL1rdTdXqgwEXN7SsXCPpJ69q0eoQTMsc_elcSAHVnBESOz6tDczX0wun_rNPOh" title="Assignee: Sarah Chen">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Sarah C.</span>
+</div>
+</div>
+</article>
+<!-- Card TF-108 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="font-code-mono text-label-sm text-outline font-semibold">TF-108</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">UI/UX</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">Medium</span>
+</div>
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface mb-space-sm line-clamp-2">
+            Refactor drag-and-drop state transitions with visual ghost placeholders
+          </h3>
+<div class="mb-space-md">
+<div class="group/pop relative inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors cursor-help">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">policy</span>
+<span class="font-code-mono text-label-sm font-semibold">POP-12 UI Heuristics</span>
+<div class="pointer-events-none absolute bottom-full left-0 mb-2 hidden w-64 rounded-xl bg-inverse-surface p-space-sm text-inverse-on-surface shadow-xl group-hover/pop:block z-50">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-surface-tint font-semibold block mb-0.5">Interaction Standard</span>
+<p class="font-body-sm text-label-sm leading-snug">Drag gestures must provide tactile elevation (Tier 3) and 2px dashed indigo target slot insertion.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>Oct 28</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="David Kim software developer avatar headshot wearing dark charcoal sweater indoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHlZ2d9n3z70wUyKmZTscpax0yuNKRhECwa7kYZA_LF6CnEJiDnQKp5T9g9xeujj3kj9JGNx01I3Jz54OzeWr3WZjAoGAl5w1MSVmEU_BYvpveQprwcy-OzDDMKArr6k8zI59st_PLFkaSx480hQqhwDNI26kafCTWbvWssKjyXOXjgzQ9WxApxZYpWDQ1OYQw3I0NXGlimlwpa_OQVI2u2MOCiyYP-1g90vqN4zQc0dATMKCvUPj3" title="Assignee: David Kim">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">David K.</span>
+</div>
+</div>
+</article>
+<!-- Card TF-112 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="font-code-mono text-label-sm text-outline font-semibold">TF-112</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Accessibility</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline font-label-sm text-label-sm font-medium">Low</span>
+</div>
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface mb-space-sm line-clamp-2">
+            Audit keyboard navigation tab indices for full WCAG 2.1 AAA compliance
+          </h3>
+<div class="flex items-center justify-between pt-space-xs mt-space-sm">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>Nov 02</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Alex Rivera headshot, clean minimalist portrait with neutral studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG6UNS4FsGAT4eE_axeIVXKeXxgrLUbbkMc6pQjsud7QlMdSiQE0sLWdUYork8jG6HBGMVCb2i1qDBy7vud_-4D18EKYFxYafQRm_fkaVsVMlqJtWDrUMyukw9UBc35i7m4Pxb03CgBmjvnTcVkBZvu56bX2lryLWL74ksX3e6O0twQSQugkLd225mhvJS-SwnaQ49UbES3oquP5dPLXqXXMiV3ZoEVcgV7euJV40ehcoFsqcdqJgd" title="Assignee: Alex Rivera">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Alex R.</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+<!-- ================= COLUMN 2: IN PROGRESS ================= -->
+<div class="flex flex-col rounded-2xl bg-surface-container p-space-md shadow-xs">
+<!-- Column Header -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-3 h-3 rounded-full bg-secondary-container animate-pulse"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">In Progress</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-code-mono text-label-sm font-semibold shadow-xs">4</span>
+</div>
+<div class="flex items-center gap-1">
+<svg class="w-5 h-5 text-surface-container-highest" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="none" r="9" stroke="currentColor" stroke-width="2.5"></circle>
+<circle cx="12" cy="12" fill="none" r="9" stroke="#006398" stroke-dasharray="56" stroke-dashoffset="34" stroke-linecap="round" stroke-width="2.5"></circle>
+</svg>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Quick Add Input -->
+<div class="mb-space-md">
+<div class="flex items-center bg-surface-container-lowest rounded-xl p-1.5 shadow-xs transition-shadow focus-within:ring-2 focus-within:ring-secondary">
+<span class="material-symbols-outlined text-[18px] text-outline ml-1">add</span>
+<input class="w-full bg-transparent border-none text-body-sm text-on-surface placeholder:text-outline px-2 focus:outline-none" placeholder="+ Quick Add Task (Press Enter)" type="text">
+<span class="font-code-mono text-label-sm text-outline mr-1.5">↵</span>
+</div>
+</div>
+<!-- Card Stack -->
+<div class="flex flex-col gap-space-sm min-h-[460px]">
+<!-- Card TF-101 (CRITICAL / OVERDUE: Heuristic #1 & #5 Visibility & Error Warning) -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="flex items-center justify-between mb-space-xs pl-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">emergency</span>
+<span class="font-code-mono text-label-sm text-error font-bold">TF-101</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">CRITICAL</span>
+</div>
+<!-- Three Dots Action Menu Dropdown Container -->
+<div class="relative group/menu">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden group-hover/menu:block absolute right-0 top-full mt-1 w-36 rounded-xl bg-surface-container-lowest shadow-xl p-1 z-50">
+<button class="w-full text-left px-2.5 py-1.5 rounded-lg text-body-sm text-on-surface hover:bg-surface-container flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span> Move lane
+                </button>
+<button class="w-full text-left px-2.5 py-1.5 rounded-lg text-body-sm text-on-surface hover:bg-surface-container flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Duplicate
+                </button>
+<button class="w-full text-left px-2.5 py-1.5 rounded-lg text-body-sm text-error hover:bg-error-container flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span> Delete
+                </button>
+</div>
+</div>
+</div>
+<h3 class="font-headline-sm text-body-md font-bold text-on-surface mb-space-sm pl-1">
+            Fix IndexedDB transaction rollback on browser crash
+          </h3>
+<!-- POP link -->
+<div class="mb-space-md pl-1">
+<div class="group/pop relative inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors cursor-help">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-code-mono text-label-sm font-semibold">POP-01 Disaster Recovery</span>
+<div class="pointer-events-none absolute bottom-full left-0 mb-2 hidden w-64 rounded-xl bg-inverse-surface p-space-sm text-inverse-on-surface shadow-xl group-hover/pop:block z-50">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error font-semibold block mb-0.5">Critical Protocol</span>
+<p class="font-body-sm text-label-sm leading-snug">Perform idempotent wal-journal verification before clearing browser transaction flags.</p>
+</div>
+</div>
+</div>
+<!-- Overdue Notice Pill (Dynamic styling) -->
+<div class="flex items-center justify-between pt-space-xs pl-1">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-error text-on-error font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Oct 20 (3 days overdue)</span>
+</span>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-error" data-alt="Alex Rivera headshot, clean minimalist portrait with neutral studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbOjNhbREH2YMik1n8D7J3qDyNeVH_yvmZbIxKkphfzwtBg86Z1a8Ocng9eCbfQ0XJmHQ_bzcYGLqMaCDJHIZzl61xFuNYi52i1SY8eSoJGWmQqbBx1N4axLEZn044AqcvY4RyC44izRXZWKTng31wTOwM-5jYRoPm9rQZkN64p-vmT6efAULSnnU0mqR6YTbNb26xgHztA0Yund5I_1cXNxejGz-i4IlkecwlFWJi11BICs7Hh3GY" title="Assignee: Alex Rivera">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Alex R.</span>
+</div>
+</div>
+</article>
+<!-- Card TF-106 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="font-code-mono text-label-sm text-outline font-semibold">TF-106</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Security</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">High</span>
+</div>
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface mb-space-sm line-clamp-2">
+            Design interactive confirmation modal for destructive purge
+          </h3>
+<div class="mb-space-md">
+<div class="group/pop relative inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors cursor-help">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-code-mono text-label-sm font-semibold">POP-09 Error Prevention</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Today (5:00 PM)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Elena Rostova smiling software architect portrait against modern concrete architectural office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Pek7fKLDoXRRakxhAzOt1zcjJQfvKT0bpLfr_WIxT5bQUVV6MvA4B4l-Ik3waBNzwscoXg9wDlagohZW7SZkUBAHyY-Vo6siVSzSwBSkih8x_900YoaKhQI51HVJeskXoWDn1ZX-KukUSmAmqYvYN_JQQA5xEb2rsaHoFcK4p2u2oaHx4I5rUn-Cc5i_NNe7C7zxK7tn4kZp7O53Hfn47gw2YjKcHBO6bcS_Z-XUA7-yGP9qttuq" title="Assignee: Elena Rostova">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Elena R.</span>
+</div>
+</div>
+</article>
+<!-- Card TF-109 (Active Drag State Visual Feedback Slot: Heuristic #1 Visibility of System Status) -->
+<div class="p-space-md rounded-xl bg-primary-fixed/20 shadow-inner flex flex-col justify-center items-center py-6 transition-all duration-200">
+<div class="flex items-center gap-2 text-primary font-body-sm text-body-sm font-semibold">
+<span class="material-symbols-outlined text-[20px] animate-bounce">south</span>
+<span>Drop card TF-109 here to assign to In Progress</span>
+</div>
+<span class="font-code-mono text-label-sm text-on-surface-variant mt-1">Releases optimistic state lock (LocalStore v2.4)</span>
+</div>
+</div>
+</div>
+<!-- ================= COLUMN 3: COMPLETED ================= -->
+<div class="flex flex-col rounded-2xl bg-surface-container p-space-md shadow-xs">
+<!-- Column Header -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-3 h-3 rounded-full bg-tertiary-container"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Completed</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-tertiary font-code-mono text-label-sm font-bold shadow-xs">9</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px] text-tertiary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Quick Add (Disabled in Completed lane to prevent cognitive errors, Heuristic #5) -->
+<div class="mb-space-md">
+<div class="flex items-center bg-surface-container-high rounded-xl p-2 shadow-xs opacity-75">
+<span class="material-symbols-outlined text-[18px] text-outline ml-1">check_circle</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant px-2 italic">Drag tasks here to mark completed</span>
+</div>
+</div>
+<!-- Card Stack -->
+<div class="flex flex-col gap-space-sm min-h-[460px]">
+<!-- Card TF-098 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest/90 shadow-sm transition-all group opacity-85 hover:opacity-100">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-code-mono text-label-sm text-outline font-semibold line-through">TF-098</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">done</span>
+                Verified
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-medium">Medium</span>
+</div>
+<h3 class="font-headline-sm text-body-md font-medium text-on-surface-variant mb-space-sm line-through">
+            Add local storage quota monitor badge (5MB limit)
+          </h3>
+<div class="flex items-center justify-between pt-space-xs mt-space-sm">
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Completed Yesterday</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover grayscale" data-alt="Alex Rivera headshot, clean minimalist portrait with neutral studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCorAkc5FYetFcXPg7o8PX4Il96hV0TvHFUOTaYMekmRLmjuIb6o7AAmQZQQoqNdrix3xPgcGNburFKnaVJYD2uS0fXTenB2_61rJlPr71z6vmFw6n_C8iKfbDJAAj_PH_Hj6K4Hb2qhTEcTMuz4znB2lbNXodbioF1krZ-k63b-KMdwHmKWVLe9VXNAiagSQ9NjgOfUg_g4fhhhweB05QnEuYnT0I03mwyVjMoImQXrQOn3lV46Mj8" title="Completed by: Alex Rivera">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Alex R.</span>
+</div>
+</div>
+</article>
+<!-- Card TF-095 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest/90 shadow-sm transition-all group opacity-85 hover:opacity-100">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-code-mono text-label-sm text-outline font-semibold line-through">TF-095</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">done</span>
+                Verified
+              </span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">High</span>
+</div>
+<h3 class="font-headline-sm text-body-md font-medium text-on-surface-variant mb-space-sm line-through">
+            Setup zero-dependency JSON export with pretty print
+          </h3>
+<div class="mb-space-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-low text-tertiary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">rule</span>
+<span class="font-code-mono text-label-sm font-semibold">POP-07 Verified</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Oct 21</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img class="w-6 h-6 rounded-full object-cover grayscale" data-alt="Sarah Chen portrait avatar with ponytail and glasses, smiling warmly, corporate photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0PZg8J4ulL7N4PIO1c5sSSHZ09Lxplrl4DzyzJcqUo3hajdFRqiAwTnL_GNvVrqIkshdrQvLiKxFXVagfcwlX9ldy_zx7UanzqMqAElj3bjsMmgskn4xWPjHPJLeIUPJ1fOyIyaCO7lokQ2MxMC3zg-zeYgJ3KiREQ-sAplFKLAJEkp7TxhjT1woERK2rQb6Ap4ANKTfLdxg2vj-bG0EZZtFCrw8ExXIwxLzaN5t40jf_8_lUcv9M" title="Completed by: Sarah Chen">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Sarah C.</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- 4. FLOATING HEURISTIC WIDGETS -->
+<!-- Heuristic #1 & #3: System Status & User Control Floating Toast Notification -->
+<div class="fixed bottom-12 right-8 z-50 flex flex-col rounded-xl bg-inverse-surface text-inverse-on-surface shadow-2xl p-space-md w-84 transition-transform duration-300 transform translate-y-0" id="undoToast">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-inverse-on-surface">Task TF-106 moved to In Progress</span>
+<span class="font-label-sm text-label-sm text-surface-variant">Auto-persists in 4s</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-primary-container text-on-primary font-headline-sm text-label-sm font-bold hover:bg-primary transition-colors flex items-center gap-1" onclick="this.closest('#undoToast').remove()" type="button">
+        Undo
+      </button>
+</div>
+<!-- Count-down progress bar -->
+<div class="mt-2.5 w-full bg-surface-variant/30 h-1 rounded-full overflow-hidden">
+<div class="bg-primary-fixed-dim h-1 rounded-full transition-all duration-[4000ms] w-0" id="toastProgress"></div>
+</div>
+</div>
+<!-- Heuristic #7: Flexibility & Efficiency - Bottom Keyboard Shortcuts Bar -->
+<div class="fixed bottom-3 left-80 z-40 flex items-center gap-space-md px-space-md py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-md text-on-surface font-label-sm text-label-sm select-none">
+<span class="flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code-mono text-label-sm font-semibold">N</kbd>
+      New Task
+    </span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code-mono text-label-sm font-semibold">/</kbd>
+      Search
+    </span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code-mono text-label-sm font-semibold">Z</kbd>
+      Undo
+    </span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code-mono text-label-sm font-semibold">?</kbd>
+      Shortcuts Guide
+    </span>
+</div>
+<!-- Heuristic #5: Error Prevention & User Control (Create Task Slide-Over Drawer) -->
+<div class="fixed inset-0 bg-on-surface/30 backdrop-blur-xs z-50 hidden transition-opacity" id="drawerBackdrop" onclick="document.getElementById('taskDrawer').classList.add('translate-x-full'); this.classList.add('hidden');"></div>
+<div class="fixed top-0 right-0 h-full w-[440px] bg-surface-container-lowest shadow-2xl z-50 flex flex-col justify-between transition-transform duration-300 ease-out translate-x-full" id="taskDrawer">
+<!-- Drawer Header -->
+<div class="p-space-lg flex items-center justify-between bg-surface-container-low">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-code-mono text-label-sm font-semibold">TF-115</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Auto-assigned ID</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface mt-1">Create New Task</h2>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="document.getElementById('taskDrawer').classList.add('translate-x-full'); document.getElementById('drawerBackdrop').classList.add('hidden');" title="Cancel [Esc]" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Body / Form (Heuristic #5: Clear indicators, required fields with *) -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-md">
+<!-- Task Title (Required) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold flex items-center justify-between">
+<span>Task Title <span class="text-error">*</span></span>
+<span class="font-code-mono text-label-sm text-outline font-normal">Max 80 chars</span>
+</label>
+<input autofocus="" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm text-on-surface border-none focus:outline-none focus:ring-2 focus:ring-primary shadow-xs" placeholder="e.g. Implement WebCrypto token hashing in offline worker" required="" type="text">
+<span class="font-body-sm text-label-sm text-outline">Clear, outcome-focused action statement</span>
+</div>
+<!-- Lane & Priority Row -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Initial Lane</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm text-on-surface border-none focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option selected="" value="todo">To Do</option>
+<option value="in_progress">In Progress</option>
+<option value="completed">Completed</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Priority Level</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm text-on-surface border-none focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option selected="" value="medium">Medium (Standard)</option>
+<option value="high">High (Sprint blocker)</option>
+<option value="critical">Critical (Immediate)</option>
+<option value="low">Low (Backlog item)</option>
+</select>
+</div>
+</div>
+<!-- Assignee (Required with visual avatars) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">
+          Assignee <span class="text-error">*</span>
+</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm text-on-surface border-none focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option value="alex">Alex Rivera (Remote Core)</option>
+<option value="sarah">Sarah Chen (UI/UX Engineering)</option>
+<option value="david">David Kim (Architecture &amp; Storage)</option>
+<option value="elena">Elena Rostova (QA &amp; Security)</option>
+</select>
+</div>
+<!-- POP Link Standard Operating Procedure -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold flex items-center justify-between">
+<span>POP Documentation Link</span>
+<span class="text-primary font-code-mono text-label-sm font-semibold">Recommended</span>
+</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm text-on-surface border-none focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option value="pop-01">POP-01 Disaster Recovery &amp; Rollback</option>
+<option selected="" value="pop-04">POP-04 Data Integrity &amp; Schema</option>
+<option value="pop-07">POP-07 Export Formats &amp; Migration</option>
+<option value="pop-09">POP-09 Error Prevention Standards</option>
+<option value="pop-12">POP-12 Tactile UI &amp; Drag Heuristics</option>
+<option value="none">None / Ad-hoc Task</option>
+</select>
+</div>
+<!-- Due Date Picker with Shortcut quick buttons -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Due Date</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm text-on-surface border-none focus:outline-none focus:ring-2 focus:ring-primary" type="date" value="2024-10-25">
+<div class="flex items-center gap-space-xs mt-1">
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high" type="button">Today</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high" type="button">Tomorrow</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high" type="button">End of Sprint</button>
+</div>
+</div>
+<!-- Heuristic Confirmation Notice -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">verified_user</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Task is automatically staged in your browser's IndexedDB before sync. Zero risk of data loss.</span>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium transition-colors" onclick="document.getElementById('taskDrawer').classList.add('translate-x-full'); document.getElementById('drawerBackdrop').classList.add('hidden');" type="button">
+        Cancel <kbd class="ml-1 text-outline font-code-mono text-label-sm">[Esc]</kbd>
+</button>
+<button class="flex items-center gap-1 px-space-xl py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-sm text-body-sm font-semibold shadow-sm transition-all" onclick="document.getElementById('taskDrawer').classList.add('translate-x-full'); document.getElementById('drawerBackdrop').classList.add('hidden');" type="button">
+<span>Create Task</span>
+<kbd class="ml-1 px-1.5 py-0.2 rounded bg-primary text-on-primary font-code-mono text-label-sm opacity-90">[Enter]</kbd>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Keyboard Shortcut listener for Nielsen Heuristic #7 (Flexibility & Efficiency)
+  document.addEventListener('keydown', function(e) {
+    // If inside an input or textarea, don't trigger global shortcuts
+    if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+      if (e.key === 'Escape') {
+        document.activeElement.blur();
+        document.getElementById('taskDrawer').classList.add('translate-x-full');
+        document.getElementById('drawerBackdrop').classList.add('hidden');
+      }
+      return;
+    }
+
+    // Press 'N' -> Open New Task Drawer
+    if (e.key === 'n' || e.key === 'N') {
+      e.preventDefault();
+      document.getElementById('taskDrawer').classList.remove('translate-x-full');
+      document.getElementById('drawerBackdrop').classList.remove('hidden');
+    }
+
+    // Press '/' -> Focus search input
+    if (e.key === '/') {
+      e.preventDefault();
+      const search = document.getElementById('kanbanSearchInput');
+      if (search) search.focus();
+    }
+
+    // Press 'Escape' -> Close Drawer
+    if (e.key === 'Escape') {
+      document.getElementById('taskDrawer').classList.add('translate-x-full');
+      document.getElementById('drawerBackdrop').classList.add('hidden');
+    }
+
+    // Press 'Z' -> Trigger Undo
+    if (e.key === 'z' || e.key === 'Z') {
+      const undoBtn = document.getElementById('undoBtn');
+      if (undoBtn) {
+        undoBtn.classList.add('bg-primary-container', 'text-on-primary');
+        setTimeout(() => undoBtn.classList.remove('bg-primary-container', 'text-on-primary'), 300);
+      }
+    }
+  });
+
+  // Animated Toast progress countdown simulation
+  window.addEventListener('load', () => {
+    const prog = document.getElementById('toastProgress');
+    if (prog) {
+      setTimeout(() => {
+        prog.style.width = '100%';
+      }, 100);
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-lowest py-space-sm px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-md"><span class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>IndexedDB Engine Ready</span><span>Engine: LocalStore v2.4</span><span>Latency: 0ms (In-Memory)</span></div><div class="flex items-center gap-space-lg"><span class="font-code-mono">Undo [Ctrl+Z] · Redo [Ctrl+Shift+Z]</span><span>Nielsen Usability Baseline Compliant</span></div></div></footer></div></body></html>

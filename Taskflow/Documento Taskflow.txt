@@ -1,0 +1,228 @@
+Documento de Requisitos de Software — TaskFlow
+TaskFlow
+Versão 1.0 — Proposta
+Tipo: aplicação web de gestão integrada de tarefas e projetos
+Base tecnológica prevista: HTML5, CSS3 e JavaScript
+Armazenamento inicialmente proposto: localStorage e arquivos JSON
+Status: documento preliminar para validação técnica e aprovação do cliente
+1. Objetivo e visão geral
+O TaskFlow tem como objetivo centralizar o gerenciamento de projetos, tarefas, documentação de processos, iniciativas de melhoria contínua e indicadores de desempenho em uma interface web simples e acessível.
+A aplicação será direcionada a equipes de trabalho remoto e deverá permitir organizar atividades, atribuir responsabilidades, acompanhar prazos, registrar comentários, consultar documentos e visualizar a evolução dos projetos.
+A solução deverá priorizar tecnologias web padrão e funcionamento local, sem dependência de banco de dados em nuvem. A persistência deverá contemplar o salvamento automático dos dados, a exportação para arquivos JSON e a importação desses arquivos para recuperação ou transferência de dados.
+Premissa arquitetural importante: a entrevista definiu acesso por vários computadores na rede local, com arquivos JSON em uma pasta compartilhada, mas também estabeleceu o uso de HTML, CSS, JavaScript e localStorage, sem back-end. Essas condições não garantem, por si só, compartilhamento e sincronização entre computadores. Portanto, o documento distingue os requisitos funcionais pretendidos das decisões técnicas ainda pendentes. A solução definitiva deverá ser validada antes do desenvolvimento.
+2. Requisitos Funcionais (RF)
+Os requisitos funcionais descrevem os comportamentos que a aplicação deverá oferecer. Os oito primeiros requisitos correspondem diretamente às oito histórias de usuário solicitadas.
+RF01 — Gerenciamento visual de tarefas no Kanban
+O sistema deverá disponibilizar um quadro Kanban com as colunas “A fazer”, “Em andamento” e “Concluído”.
+O usuário autorizado deverá conseguir mover tarefas entre as colunas por meio de arrastar e soltar (drag and drop). A alteração de coluna deverá atualizar o status da tarefa e persistir a mudança conforme o mecanismo de armazenamento definido.
+RF02 — Cadastro e gerenciamento de projetos e tarefas
+O sistema deverá permitir criar e editar projetos, etapas e tarefas, vinculando cada tarefa a um projeto e, quando aplicável, a uma etapa.
+Cada tarefa deverá permitir informar, no mínimo, título, descrição, responsável, status, prioridade e data de entrega. Também deverá contemplar datas de criação e conclusão, comentários, checklist, dependências, anexos e percentual de progresso, conforme aplicável.
+O sistema deverá disponibilizar a consulta dos registros e permitir a atualização de seus dados de acordo com as permissões do usuário.
+RF03 — Documentação de processos
+O sistema deverá permitir cadastrar, editar, consultar e organizar documentos de processos internos, incluindo procedimentos e instruções de trabalho.
+Os documentos deverão possuir, no mínimo, título, conteúdo, data de criação e data da última atualização. O vínculo entre documentos e projetos ou tarefas poderá ser utilizado para facilitar a consulta contextual.
+RF04 — Registro de problemas e melhorias contínuas
+O sistema deverá permitir registrar problemas identificados durante a execução dos projetos e estruturar iniciativas de melhoria contínua.
+Cada registro deverá contemplar descrição do problema, causa identificada ou hipótese de causa, ação proposta, responsável, prazo, status e evidências disponíveis.
+O sistema deverá permitir acompanhar planos de ação e consultar seus registros associados.
+RF05 — Dashboard de acompanhamento
+O sistema deverá disponibilizar um painel com indicadores de acompanhamento dos projetos e das tarefas.
+O painel deverá apresentar, no mínimo:
+* Total de tarefas cadastradas.
+* Total de tarefas concluídas.
+* Total de tarefas pendentes.
+* Total de tarefas atrasadas.
+* Progresso dos projetos.
+* Indicadores de produtividade e projetos em risco, conforme critérios de cálculo definidos.
+Os indicadores deverão refletir os dados atualmente armazenados e ser atualizados após alterações relevantes.
+RF06 — Filtro de tarefas por responsável
+O sistema deverá permitir filtrar as tarefas pelo nome do responsável, exibindo somente os registros correspondentes ao filtro aplicado.
+O usuário deverá conseguir limpar o filtro e retornar à visualização das tarefas disponíveis conforme seu perfil e suas permissões.
+RF07 — Exportação de dados em JSON
+O sistema deverá permitir exportar os dados da aplicação para um arquivo com extensão .json.
+A exportação deverá incluir os projetos, etapas, tarefas, documentos de processos, registros de melhoria contínua, comentários, checklists, dependências e demais dados persistidos que façam parte do escopo aprovado.
+O arquivo deverá ser disponibilizado para salvamento no computador do usuário.
+RF08 — Importação de dados em JSON
+O sistema deverá permitir selecionar e importar um arquivo JSON previamente exportado pelo TaskFlow.
+A aplicação deverá validar a estrutura e os tipos de dados antes de aplicar a importação, apresentar mensagens claras em caso de erro e permitir a recuperação dos dados por meio do arquivo válido.
+A política de importação — substituir os dados existentes ou mesclá-los — deverá ser definida antes da implementação.
+RF09 — Gestão de usuários e perfis de acesso
+O sistema deverá contemplar os seguintes perfis funcionais:
+PerfilPermissões previstasAdministradorGerenciar os dados e configurações da aplicação, administrar acessos e excluir projetos.Líder de projetoCriar e gerenciar projetos e tarefas, atribuir responsáveis e acompanhar indicadores, respeitando as permissões concedidas.Membro da equipeConsultar informações autorizadas, atualizar suas tarefas e colaborar por comentários.O administrador será o único perfil autorizado a excluir projetos. As permissões específicas de edição, exclusão de tarefas, documentos e planos de ação deverão ser detalhadas na implementação.
+A identificação dos usuários e a aplicação efetiva das permissões dependerão da arquitetura de execução e armazenamento escolhida.
+RF10 — Comentários e histórico de alterações
+O sistema deverá permitir adicionar comentários às tarefas e registrar alterações relevantes, incluindo mudanças de status, responsável e prazo.
+Cada registro de histórico deverá conter o tipo de alteração, a data e os valores anterior e posterior quando aplicáveis. A identificação do autor dependerá da existência de autenticação ou de outro mecanismo confiável de identificação.
+RF11 — Calendário de prazos
+O sistema deverá disponibilizar uma visualização em calendário das tarefas e entregas, considerando suas datas de início e vencimento, quando preenchidas.
+O usuário deverá conseguir consultar as atividades por período e acessar os detalhes de uma tarefa a partir do calendário.
+RF12 — Anexos e evidências
+O sistema deverá permitir associar arquivos ou referências a arquivos às tarefas, projetos e planos de ação, conforme os tipos de registro suportados.
+A solução deverá indicar o nome do arquivo, o vínculo correspondente e, quando disponível, o tamanho e o tipo do arquivo. A estratégia de armazenamento dos anexos deverá ser compatível com o mecanismo de persistência aprovado.
+RF13 — Validação de conclusão de tarefas
+O sistema deverá verificar a existência de itens pendentes no checklist antes de permitir a conclusão de uma tarefa.
+Se houver itens pendentes, a conclusão deverá ser bloqueada e uma mensagem deverá informar o motivo. Caso todos os itens estejam concluídos, a mudança de status deverá ser permitida ao usuário autorizado.
+RF14 — Controle de prazos e atrasos
+O sistema deverá identificar automaticamente tarefas cujo prazo tenha expirado e que ainda não estejam concluídas.
+O sistema deverá exigir uma justificativa para o registro de atraso, conforme a regra operacional a ser definida, e registrar o motivo de alterações de prazo.
+RF15 — Cálculo de progresso dos projetos
+O sistema deverá calcular o progresso de cada projeto com base nas tarefas vinculadas, de acordo com uma fórmula consistente.
+Como regra inicial proposta, o percentual de progresso será calculado pela proporção de tarefas concluídas em relação ao total de tarefas do projeto. Projetos sem tarefas deverão apresentar progresso de 0%, evitando divisão por zero.
+RF16 — Persistência automática dos dados
+O sistema deverá salvar automaticamente as alterações efetuadas nos registros, sem exigir que o usuário acione um botão de salvamento a cada operação.
+A implementação deverá indicar falhas de persistência e não deverá apresentar uma operação como salva quando a gravação não tiver sido confirmada.
+A abrangência desse requisito dependerá da arquitetura escolhida: localStorage permite persistência no navegador atual, mas não oferece sincronização nativa entre dispositivos.
+RF17 — Recuperação e transferência de dados
+O sistema deverá permitir restaurar dados a partir de um backup válido e transferir informações entre computadores utilizando os mecanismos autorizados pela empresa.
+A importação deverá validar os dados e evitar que um arquivo inválido deixe a aplicação em estado inconsistente. A transferência de anexos deverá ser contemplada quando esses arquivos fizerem parte do backup.
+RF18 — Organização e pesquisa de registros
+O sistema deverá permitir localizar e consultar projetos, tarefas, documentos e registros de melhoria contínua por critérios pertinentes a cada tipo de registro.
+Os filtros deverão respeitar as permissões do usuário e permitir retornar à visualização completa dos registros acessíveis.
+3. Requisitos Não Funcionais (RNF)
+Os requisitos não funcionais definem atributos de qualidade, restrições técnicas e condições operacionais da aplicação.
+CódigoCategoriaRequisitoRNF01TecnologiaA interface deverá ser desenvolvida com HTML5, CSS3 e JavaScript, evitando dependências desnecessárias de frameworks ou serviços externos.RNF02Funcionamento localA solução não deverá depender de banco de dados em nuvem para suas funções principais.RNF03PersistênciaA persistência local deverá utilizar localStorage quando aplicável, com exportação e importação de JSON para backup e transferência.RNF04CompatibilidadeA aplicação deverá funcionar nos navegadores corporativos homologados, a serem definidos pelo cliente.RNF05UsabilidadeA interface deverá ser responsiva, consistente e compreensível, com navegação clara, formulários objetivos e feedback para as ações realizadas.RNF06DesempenhoComo meta inicial, operações comuns sobre uma base de até 5.000 tarefas deverão apresentar resposta visual em até 2 segundos em um computador corporativo compatível, sob condições normais de uso. A meta deverá ser validada em testes.RNF07IntegridadeA aplicação deverá validar os dados antes de gravá-los e importar arquivos, evitando registros incompletos ou estruturas inconsistentes.RNF08SegurançaAs informações deverão permanecer no ambiente autorizado. O sistema deverá restringir ações conforme as permissões e não poderá depender apenas de ocultação de botões para garantir autorização.RNF09ManutenibilidadeO código deverá ser organizado por responsabilidades, com separação lógica entre interface, regras de negócio, validações e persistência.RNF10PortabilidadeOs dados deverão poder ser exportados em formato JSON documentado, de modo a facilitar backup e migração entre ambientes compatíveis.RNF11ConfiabilidadeFalhas de gravação, leitura ou importação deverão ser comunicadas ao usuário, preservando os dados anteriores sempre que tecnicamente possível.RNF12AcessibilidadeA navegação deverá contemplar uso por teclado, rótulos em campos, contraste adequado e mensagens de validação compreensíveis.RNF13InstalaçãoA solução não deverá exigir instalação de programas não autorizados pela empresa.RNF14PrivacidadeA aplicação deverá coletar apenas os dados necessários à gestão dos trabalhos e evitar o envio de informações a serviços externos não autorizados.RNF15ConcorrênciaCaso haja edição compartilhada entre computadores, a solução deverá possuir mecanismo validado de sincronização e prevenção de sobrescritas. O atendimento deste requisito depende da arquitetura final.Observação: a meta de desempenho de 5.000 tarefas em até 2 segundos é uma proposta mensurável para testes, não um resultado já comprovado. Ela deverá ser revisada conforme o ambiente corporativo e a solução de armazenamento.
+4. Regras de Negócio (RN)
+CódigoRegraRN01Toda tarefa deverá estar associada a um projeto válido.RN02Toda tarefa deverá possuir título, status e prioridade válidos.RN03Uma tarefa concluída deverá possuir todos os itens do checklist concluídos.RN04Tarefas vencidas e não concluídas deverão ser classificadas como atrasadas.RN05O registro de atraso deverá conter uma justificativa conforme a política aprovada pelo cliente.RN06Alterações de prazo deverão registrar o motivo informado pelo usuário.RN07O progresso do projeto será calculado pela proporção de tarefas concluídas em relação ao total de tarefas vinculadas, salvo decisão posterior em contrário.RN08Projetos sem tarefas deverão apresentar progresso igual a 0%.RN09Somente administradores poderão excluir projetos.RN10O acesso e as operações deverão respeitar as permissões do perfil do usuário.RN11O sistema deverá preservar o vínculo entre projetos, etapas, tarefas, comentários, documentos e planos de ação durante exportações e importações.RN12Arquivos JSON inválidos ou incompatíveis não deverão substituir os dados atuais.RN13A importação deverá seguir uma política explícita de substituição ou mesclagem, a ser aprovada antes do desenvolvimento.RN14A exportação deverá incluir todos os dados persistidos abrangidos pelo escopo aprovado, respeitando a estratégia definida para anexos.RN15Alterações de status, responsável e prazo deverão ser registradas no histórico, quando o mecanismo de identificação e persistência suportar a rastreabilidade necessária.RN16Indicadores de tarefas pendentes, concluídas e atrasadas deverão ser calculados com critérios consistentes em todo o sistema.RN17Os dados locais de cada navegador não deverão ser considerados automaticamente compartilhados ou sincronizados com outros computadores.RN18Em operações de gravação compartilhada, a solução deverá prevenir sobrescritas silenciosas ou informar conflitos ao usuário.As regras RN15 e RN18 dependem especialmente da definição técnica do mecanismo de persistência e da identificação dos usuários. Não poderão ser consideradas plenamente atendidas apenas com um localStorage independente em cada navegador.
+5. Histórias de Usuário e Critérios de Aceite
+As oito histórias abaixo são mantidas exatamente conforme solicitado, incluindo seus códigos de referência aos requisitos funcionais. Os critérios de aceite complementam cada história com condições verificáveis para testes funcionais.
+HU01 — Movimentação de tarefas no Kanban
+Como membro da equipe, quero arrastar minhas tarefas entre as colunas do Kanban, para atualizar o status do meu trabalho de forma rápida. [Atende RF01]
+Critérios de aceite
+* CA01.1 — Dado que uma tarefa esteja na coluna “A fazer”, quando um usuário autorizado arrastá-la para “Em andamento”, o cartão deverá aparecer na nova coluna.
+* CA01.2 — O status armazenado deverá corresponder à coluna de destino após a operação ser confirmada.
+* CA01.3 — Após recarregar a aplicação, a tarefa deverá permanecer na coluna correspondente ao último status salvo.
+* CA01.4 — Se a gravação falhar, o sistema deverá informar a falha e não deverá indicar que a alteração foi persistida.
+* CA01.5 — O usuário deverá conseguir alterar o status por um mecanismo alternativo acessível por teclado, caso o arrastar e soltar não esteja disponível.
+HU02 — Cadastro de tarefas e responsabilidades
+Como líder de projeto, quero cadastrar tarefas definindo responsável e data de entrega, para organizar as entregas da equipe. [Atende RF02]
+Critérios de aceite
+* CA02.1 — O formulário deverá permitir informar título, descrição, responsável, prioridade, status e data de entrega.
+* CA02.2 — O sistema deverá impedir o salvamento de uma tarefa sem título, projeto associado, status ou prioridade válidos.
+* CA02.3 — O responsável selecionado deverá ser armazenado e exibido nos detalhes da tarefa.
+* CA02.4 — A data de entrega deverá ser armazenada em formato consistente e apresentada no padrão DD/MM/AAAA.
+* CA02.5 — Após salvar a tarefa com sucesso, ela deverá aparecer na lista do projeto correspondente.
+* CA02.6 — O sistema deverá rejeitar ou sinalizar uma tentativa de salvar a tarefa quando ocorrer uma falha de persistência.
+HU03 — Consulta de documentos de processos
+Como membro da equipe, quero consultar os documentos de processos internos no sistema, para seguir os padrões corretos ao realizar uma atividade. [Atende RF03]
+Critérios de aceite
+* CA03.1 — O usuário deverá visualizar a lista de documentos aos quais possui acesso.
+* CA03.2 — Ao selecionar um documento, o sistema deverá apresentar seu título e conteúdo.
+* CA03.3 — A lista deverá apresentar a data da última atualização de cada documento.
+* CA03.4 — Documentos inexistentes ou indisponíveis deverão gerar uma mensagem informativa, sem interromper a aplicação.
+* CA03.5 — Um usuário sem permissão de edição deverá conseguir consultar o documento sem alterar seu conteúdo.
+HU04 — Registro de problemas e melhorias
+Como membro da equipe, quero registrar um problema identificado durante um projeto, para propor uma ação de melhoria. [Atende RF04]
+Critérios de aceite
+* CA04.1 — O formulário deverá permitir registrar a descrição do problema e a ação proposta.
+* CA04.2 — O registro deverá ser vinculado a um projeto existente.
+* CA04.3 — O sistema deverá permitir informar causa, responsável, prazo e status do plano de ação, conforme os campos definidos.
+* CA04.4 — O sistema deverá validar os campos obrigatórios antes de salvar.
+* CA04.5 — Após a confirmação do salvamento, o problema deverá aparecer na lista de melhorias do projeto.
+* CA04.6 — O registro deverá continuar disponível após a recarga da aplicação, desde que a persistência tenha sido confirmada.
+HU05 — Visualização de indicadores no dashboard
+Como gestor, quero visualizar o total de tarefas concluídas e pendentes no dashboard, para acompanhar a produtividade do time. [Atende RF05]
+Critérios de aceite
+* CA05.1 — O dashboard deverá apresentar os totais de tarefas concluídas e pendentes.
+* CA05.2 — Os totais deverão corresponder aos registros válidos existentes na base de dados carregada.
+* CA05.3 — Uma tarefa não poderá ser contabilizada simultaneamente como concluída e pendente.
+* CA05.4 — Após criar, concluir ou reabrir uma tarefa, os indicadores deverão ser atualizados.
+* CA05.5 — Na ausência de tarefas, os indicadores deverão apresentar zero, sem erros de cálculo.
+* CA05.6 — O sistema deverá utilizar a mesma regra de classificação de status em todas as telas e indicadores.
+HU06 — Filtro por responsável
+Como membro da equipe, quero filtrar as tarefas pelo meu nome, para ver rapidamente apenas as atividades sob minha responsabilidade. [Atende RF06]
+Critérios de aceite
+* CA06.1 — O usuário deverá conseguir selecionar ou informar um responsável no filtro.
+* CA06.2 — Após aplicar o filtro, deverão ser exibidas somente as tarefas atribuídas ao responsável selecionado, dentro do conjunto de dados ao qual o usuário tem acesso.
+* CA06.3 — Se nenhuma tarefa corresponder ao filtro, o sistema deverá exibir uma mensagem indicando que não foram encontrados resultados.
+* CA06.4 — Ao limpar o filtro, o sistema deverá retornar às tarefas acessíveis sem a restrição anterior.
+* CA06.5 — O filtro não deverá modificar nem excluir os registros armazenados.
+HU07 — Exportação de backup JSON
+Como gestor, quero exportar a base de dados em um arquivo JSON, para salvar um backup dos projetos no meu computador. [Atende RF07]
+Critérios de aceite
+* CA07.1 — O sistema deverá disponibilizar uma ação de exportação para usuários autorizados.
+* CA07.2 — A ação deverá gerar um arquivo com extensão .json e estrutura válida.
+* CA07.3 — O arquivo deverá conter todos os registros persistidos abrangidos pelo escopo aprovado, mantendo identificadores e vínculos entre entidades.
+* CA07.4 — O arquivo exportado deverá poder ser lido por um analisador JSON padrão.
+* CA07.5 — Se não houver dados cadastrados, o sistema deverá gerar um arquivo válido com coleções vazias ou informar claramente a ausência de dados, conforme a política aprovada.
+* CA07.6 — Se a geração ou o download falhar, o usuário deverá receber uma mensagem de erro.
+HU08 — Importação de backup JSON
+Como gestor, quero importar um arquivo JSON salvo, para carregar os projetos em outro computador sem perder dados. [Atende RF08]
+Critérios de aceite
+* CA08.1 — O sistema deverá permitir selecionar um arquivo .json local.
+* CA08.2 — Antes de importar, deverá validar a estrutura, a versão do formato e os tipos dos campos obrigatórios.
+* CA08.3 — Um arquivo inválido deverá ser rejeitado sem modificar os dados existentes.
+* CA08.4 — Em caso de sucesso, os registros importados deverão ser apresentados na aplicação, preservando os identificadores e vínculos.
+* CA08.5 — A política de substituição ou mesclagem deverá ser informada antes da confirmação da importação.
+* CA08.6 — Uma falha durante a importação não deverá deixar a base parcialmente atualizada; a operação deverá ser atômica ou oferecer recuperação dos dados anteriores.
+* CA08.7 — Um arquivo exportado pelo próprio TaskFlow deverá poder ser reimportado em um ambiente compatível.
+* CA08.8 — A importação deverá informar se foi concluída ou rejeitada, sem declarar sucesso antes da confirmação da operação.
+6. Validação de Dados e Tratamento de Exceções
+6.1 Validação de campos
+SituaçãoComportamento esperadoTítulo obrigatório não preenchidoImpedir o salvamento e destacar o campo.Projeto inexistente ou inválidoRejeitar o vínculo e solicitar um projeto válido.Responsável não selecionadoPermitir somente se a política de negócio admitir tarefas sem responsável; caso contrário, bloquear.Data em formato inválidoImpedir o salvamento e informar o formato esperado.Data de entrega anterior à data de inícioAlertar o usuário e bloquear o salvamento, salvo exceção aprovada.Checklist com itens pendentesImpedir a conclusão da tarefa e informar os itens pendentes.Alteração de prazo sem justificativaImpedir a confirmação da alteração.Registro de atraso sem justificativaImpedir a confirmação do registro, conforme a regra aprovada.Arquivo JSON malformadoRejeitar a importação sem alterar os dados existentes.JSON com estrutura ou versão incompatívelInformar a incompatibilidade e manter a base atual.Arquivo de anexo indisponívelInformar que o anexo não pode ser acessado, sem excluir silenciosamente o vínculo.Falha de gravaçãoInformar que a alteração não foi confirmada e preservar os dados anteriores quando possível.Conflito de edição simultâneaNão sobrescrever silenciosamente; solicitar resolução ou informar que a atualização precisa ser refeita.6.2 Mensagens de erro sugeridas
+As mensagens devem ser claras e orientadas à ação:
+* Campo obrigatório: “Preencha este campo para continuar.”
+* Projeto inválido: “O projeto selecionado não está disponível. Escolha um projeto válido.”
+* Checklist incompleto: “Não é possível concluir a tarefa enquanto houver itens pendentes no checklist.”
+* Justificativa ausente: “Informe o motivo antes de confirmar a alteração.”
+* Arquivo JSON inválido: “Não foi possível importar o arquivo. Verifique se ele é um backup válido do TaskFlow.”
+* Falha de persistência: “Não foi possível salvar as alterações. Seus dados podem não estar atualizados.”
+* Conflito de edição: “Este registro foi alterado em outro local. Atualize os dados e tente novamente.”
+* Permissão insuficiente: “Você não tem permissão para realizar esta ação.”
+* Nenhum resultado: “Nenhuma tarefa foi encontrada para os filtros selecionados.”
+6.3 Comportamentos excepcionais
+Falha na inicialização: se os dados armazenados estiverem ausentes, o sistema deverá iniciar com uma base vazia válida. Se estiverem corrompidos, deverá informar o problema e evitar sobrescrever automaticamente os dados originais.
+Falha de armazenamento: antes de confirmar qualquer alteração, a aplicação deverá verificar se a gravação foi realizada. Quando houver falha, deverá preservar o estado anterior em memória ou oferecer recuperação compatível com o mecanismo de persistência utilizado.
+Importação interrompida: a aplicação deverá validar e preparar os dados antes de aplicá-los. Se a operação falhar, a base anterior deverá continuar disponível.
+Edição simultânea: se a arquitetura permitir alterações em vários computadores, deverá existir um mecanismo para identificar versões ou conflitos. A utilização isolada de localStorage não satisfaz essa condição.
+Ausência de conexão externa: as funções que não dependam de recursos externos deverão continuar disponíveis localmente. A sincronização por rede, caso seja implementada, deverá informar indisponibilidade sem simular que as alterações foram compartilhadas.
+7. Escopo, exclusões e pendências
+7.1 Escopo previsto para a primeira versão
+A primeira versão do TaskFlow deverá contemplar:
+* Gestão de projetos, etapas e tarefas com quadro Kanban.
+* Atribuição de responsáveis, prioridades, prazos e status.
+* Documentação de processos e registro de iniciativas de melhoria contínua.
+* Comentários, histórico de alterações, checklists, dependências e anexos.
+* Dashboard com indicadores operacionais e de produtividade.
+* Calendário e filtros para consulta das atividades.
+* Perfis de acesso, com exclusão de projetos restrita aos administradores.
+* Persistência automática, exportação e importação de dados em JSON.
+* Validações de dados, regras de conclusão, justificativas de atraso e controle de alterações de prazo.
+7.2 Itens fora do escopo atual
+Não estão previstos nesta versão, salvo aprovação posterior:
+* Banco de dados ou hospedagem em nuvem.
+* Integrações com ferramentas externas, como Jira, Trello ou sistemas corporativos.
+* Aplicativos nativos para Android ou iOS.
+* Inteligência artificial para classificação ou priorização automática de tarefas.
+* Notificações por SMS, WhatsApp ou e-mail.
+* Gestão financeira avançada, faturamento ou controle contábil.
+* Autenticação corporativa integrada, como Active Directory ou Microsoft Entra ID.
+* Sincronização em tempo real entre computadores, até que a arquitetura necessária seja definida e aprovada.
+A última exclusão é provisória: o compartilhamento de dados entre computadores é uma necessidade expressa no levantamento, mas sua implementação ainda depende de validação técnica.
+7.3 Pendências que exigem decisão do cliente
+IDPendênciaDecisão necessáriaP01Arquitetura de armazenamentoDefinir se o localStorage será apenas um recurso local ou se haverá outro mecanismo autorizado para compartilhar dados.P02Pasta de redeConfirmar se a empresa permite gravação de arquivos por uma aplicação web na pasta compartilhada.P03ConcorrênciaDefinir como lidar com usuários editando o mesmo registro simultaneamente.P04AutenticaçãoDefinir como os usuários serão identificados e como as permissões serão efetivamente aplicadas.P05Importação JSONDecidir entre substituir toda a base ou mesclar registros, inclusive quando existirem identificadores duplicados.P06AnexosDefinir se os arquivos serão incorporados ao backup, armazenados separadamente ou referenciados por caminho.P07Exclusão de dadosDefinir se tarefas, documentos e planos de ação poderão ser excluídos por líderes ou somente por administradores.P08IndicadoresAprovar as fórmulas de produtividade, atraso, progresso e classificação de projetos em risco.P09Regras de prazoDefinir se tarefas sem data de entrega serão permitidas e como serão tratadas alterações retroativas de prazo.P10Ambiente corporativoConfirmar navegadores homologados, ferramentas autorizadas, permissões e eventuais recursos do Microsoft 365 disponíveis.P11HistóricoDefinir o período de retenção do histórico e se comentários e versões anteriores poderão ser excluídos.P12Backup e recuperaçãoDefinir frequência recomendada de backup, responsabilidade pela guarda dos arquivos e procedimento de restauração.7.4 Risco arquitetural prioritário
+A combinação de requisitos atual contém uma incompatibilidade técnica que precisa ser resolvida antes do desenvolvimento.
+Restrição de arquitetura
+O localStorage armazena dados no navegador e na origem da aplicação em que são gravados. Ele não funciona como um arquivo JSON compartilhado entre computadores e não oferece sincronização, controle de concorrência ou autenticação multiusuário por conta própria.
+Uma pasta de rede compartilhada também não resolve automaticamente esses problemas: o navegador não possui permissão irrestrita para gravar nela, e gravações simultâneas podem causar perda de dados.
+Há três caminhos técnicos que poderão ser avaliados depois da validação do ambiente:
+1. Aplicação estática com localStorage: mais simples e alinhada à exigência de HTML, CSS e JavaScript, mas cada navegador mantém seus próprios dados. O compartilhamento depende de exportação e importação manual.
+2. Arquivos JSON em pasta compartilhada: preserva a ideia de arquivos locais, mas exige um mecanismo autorizado de acesso aos arquivos e controle de concorrência. HTML, CSS e JavaScript no navegador, isoladamente, não garantem esse funcionamento.
+3. Solução corporativa autorizada para compartilhamento: avaliar os recursos já disponíveis na empresa, inclusive o Microsoft 365, caso estejam habilitados. Isso pode permitir uma experiência compartilhada, mas deverá ser verificado quanto a permissões, licenciamento, limitações e adequação às políticas de TI.
+Essas alternativas são caminhos de avaliação, não decisões arquiteturais já aprovadas.
+8. Revisão crítica e consistência do documento
+Antes de concluir, foram considerados os principais riscos de ambiguidade e inconsistência:
+* Histórias e requisitos: as oito histórias foram preservadas exatamente conforme fornecidas e vinculadas aos RF01–RF08.
+* Critérios de aceite: foram definidos resultados observáveis para as oito histórias, incluindo condições de sucesso, validação e falha.
+* Progresso do projeto: foi proposta uma fórmula explícita baseada na proporção de tarefas concluídas, com tratamento para projetos sem tarefas.
+* Conclusão de tarefas: a regra de bloqueio quando há itens pendentes no checklist foi alinhada entre os requisitos funcionais e as regras de negócio.
+* Importação e exportação: foi identificada a necessidade de preservar vínculos e validar o arquivo antes de alterar a base; a política de substituição ou mesclagem permanece pendente.
+* Permissões: a exclusão de projetos ficou restrita aos administradores, sem presumir que os demais controles de acesso já estejam tecnicamente implementados.
+* Persistência e rede: foi explicitada a diferença entre armazenamento local, backup JSON e compartilhamento entre dispositivos.
+* Desempenho: a meta proposta foi identificada como critério a ser testado, e não como garantia de desempenho.
+* Rastreabilidade: os requisitos de histórico e identificação do autor foram condicionados à existência de um mecanismo confiável de identificação e persistência.
+Conclusão
+Este documento consolida os requisitos funcionais, não funcionais, regras de negócio, histórias de usuário, critérios de aceite, validações, exceções, escopo e pendências do TaskFlow.
+Ele está estruturado para apoiar o planejamento do backlog, a estimativa de desenvolvimento e a preparação dos testes. Ainda não deve ser considerado uma especificação técnica aprovada para implementação, pois a arquitetura de armazenamento e compartilhamento, a autenticação e algumas regras operacionais precisam de confirmação.
+A recomendação é resolver primeiro a pendência P01 — arquitetura de armazenamento — e validar o ambiente corporativo da P10. Essas decisões condicionam a viabilidade dos demais requisitos, especialmente o acesso multiusuário, as permissões e a integridade dos dados.
+

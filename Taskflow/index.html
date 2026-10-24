@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fc">
+    <meta name="description" content="Taskflow: projetos, tarefas, processos e melhorias em um espaço de trabalho local.">
+    <title>Taskflow — Gestão de trabalho</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="module" src="src/app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="#dashboard" aria-label="Taskflow, início">
+          <span class="brand-mark" aria-hidden="true">T</span>
+          <span><strong>taskflow</strong><small>workspace local</small></span>
+        </a>
+        <div class="nav-caption">ESPAÇO DE TRABALHO</div>
+        <nav class="main-nav">
+          <a href="#dashboard" data-route="dashboard"><span class="nav-icon">◫</span>Visão geral</a>
+          <a href="#projects" data-route="projects"><span class="nav-icon">▦</span>Projetos</a>
+          <a href="#kanban" data-route="kanban"><span class="nav-icon">☷</span>Quadro Kanban<span class="nav-count" id="nav-task-count">0</span></a>
+          <a href="#documents" data-route="documents"><span class="nav-icon">▤</span>Documentos</a>
+          <a href="#improvements" data-route="improvements"><span class="nav-icon">↗</span>Melhorias</a>
+          <a href="#calendar" data-route="calendar"><span class="nav-icon">▦</span>Calendário</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="#backup" data-route="backup"><span class="nav-icon">⤓</span>Backup e dados</a>
+          <div class="local-status"><span class="status-dot"></span><span><strong>Dados neste navegador</strong><small>Salvamento automático local</small></span></div>
+          <div class="sidebar-foot">Taskflow <span>•</span> uso local</div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="icon-button menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-sep">/</span><strong id="current-section">Visão geral</strong></div>
+          <div class="topbar-actions">
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Buscar nesta tela..." aria-label="Buscar nesta tela"><kbd>/</kbd></label>
+            <button class="button button-primary button-compact" id="header-create">＋ <span>Novo projeto</span></button>
+          </div>
+        </header>
+        <section class="page-content" id="page-content" tabindex="-1" aria-live="polite"></section>
+        <footer class="app-footer"><span><i class="status-dot"></i> Alterações salvas neste navegador</span><span>Faça backups periódicos em <a href="#backup">Backup e dados</a>.</span></footer>
+      </main>
+    </div>
+    <div class="sidebar-scrim" id="sidebar-scrim"></div>
+    <dialog class="modal" id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
